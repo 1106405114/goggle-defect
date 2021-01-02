@@ -67,7 +67,10 @@ def get_ds_dict(dirs):
                     objs.append(obj)
     
             record["annotations"] = objs
-            dataset_dicts.append(record)
+            
+            # kiem tra de loai bo anh khong co' nhan
+            if len(objs) >0:
+	            dataset_dicts.append(record)
     
     return dataset_dicts
 
@@ -115,5 +118,12 @@ class LoadData(Dataset):
 from config import BATCH_SIZE
 train_dataset = LoadData(dict_train)
 train_data_loader = DataLoader(train_dataset, collate_fn = collate_custom, batch_size=BATCH_SIZE)
+
+# =============================================================================
+# for i, (img, target, img_id) in enumerate(train_data_loader):
+# 	print("=====================")
+# 	print(target)
+# =============================================================================
+
 
 

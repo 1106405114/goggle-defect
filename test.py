@@ -7,14 +7,14 @@ import torch
 from tqdm import tqdm
 from model import build_model
 
-from config import TEST_PATH, TEST_RESULT, PRE_THRES
+from config import TEST_PATH, TEST_RESULT, PRE_THRES, NUM_CLS
 
 # set the computation device
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 # load the model and the trained weights
-model = build_model(2).to(device)
-model.load_state_dict(torch.load('checkpoints/goggle.pth'))
+model = build_model(NUM_CLS).to(device)
+model.load_state_dict(torch.load('checkpoints/goggle4Cls.pth'))
 
 DIR_TEST = TEST_PATH
 test_images = os.listdir(DIR_TEST)

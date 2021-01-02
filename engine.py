@@ -31,7 +31,7 @@ def train(train_dataloader):
 
 
 def save_model():
-    torch.save(model.state_dict(), 'checkpoints/goggle.pth')
+    torch.save(model.state_dict(), 'checkpoints/goggle4Cls.pth')
 
 """
 def visualize():
